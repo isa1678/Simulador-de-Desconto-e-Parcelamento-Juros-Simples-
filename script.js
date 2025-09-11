@@ -22,6 +22,33 @@ const outValorParcela = document.getElementById('valorParcela');
 const outTotalPagar = document.getElementById('totalPagar');
 const outEconomia = document.getElementById('economia');
 
+if (!form) {
+    console.error('form não encontrado (id="form"). Verifique o HTML.'); 
+    return;
+}
+
+form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    erro.textContent = '';
+
+    try {
+        // Ler entradas (aceita vírgula em números)
+        const preco = toNumber(document.getElementById('preco').value);
+        const desconto = toNumber(document.getElementById('desconto').value);
+        const taxa = toNumber(document.getElementById('taxa').value);
+        const parcelasRaw = document.getElementById('parcelas').value);
+        const parcelas = parseInt(String(parcelasRaw).replace(',',''), 10);
+
+        // validações 
+        if (isNaN(preco) || preco <= 0) throw new Error('Informe um preço válido (> 0).');
+        if (isNaN(desconto) || desconto < 0) throw new Error('Desconto deve ser >= 0.')
+            if (isNaN(taxa) || taxa < 0) throw new Error('Taxa deve ser >= 0.');
+        
+
+
+    
+
+
 
         
 
